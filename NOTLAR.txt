@@ -1,0 +1,1 @@
+modalin icine status bar koydum cunku modal acildiginda status bar beyaz oluyordu.
