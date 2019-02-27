@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { getShowed } from './testWord';
+import { getShowed, leastNotifyNumber } from './testWord';
 
 // get list object
 export async function get(){
@@ -48,7 +48,9 @@ export async function addList(listname){
 export async function addWord(listNo, word1, word2){
     obj = await get()
     show = getShowed(obj,listNo)
-    obj.list[listNo].liste.push({kelime1: word1, kelime2: word2, showed: show, count: 0});
+    notifyNo = leastNotifyNumber(obj, listNo)
+    console.log("notifyNo:"+notifyNo)
+    obj.list[listNo].liste.push({kelime1: word1, kelime2: word2, showed: show, count: 0, notify: notifyNo});
     await AsyncStorage.setItem('lists',JSON.stringify(obj));
 }
 
@@ -97,4 +99,71 @@ export async function updateScore(listNo,kelimeNo,answer,pass){
         }
     }
     await AsyncStorage.setItem('lists',JSON.stringify(obj));
+}
+
+
+// update notify data and save after notification showed
+export async function updateNotify(data,listNo, kelimeNo){
+    console.log("updateNotfiy()")
+    obj = data
+    obj.list[listNo].liste[kelimeNo].notify = obj.list[listNo].liste[kelimeNo].notify + 1
+    await AsyncStorage.setItem('lists',JSON.stringify(obj));
+}
+
+
+
+//**************  Save Notification On Off data ******************* */
+//***************************************************************** */
+
+// set notification is "on" or "off"
+export async function setNotificationData(onOff){
+    try{
+        var onOffStr = onOff.toString()
+        await AsyncStorage.setItem('Notification', onOffStr);
+    }
+    catch{ console.log("error set notification")}
+}
+
+// get notification data
+export async function getNotificationData(){
+    try{
+        minutesStr = await AsyncStorage.getItem('Notification');
+        minutes = Number(minutesStr)
+        return minutes
+    }
+    catch{ 
+        Console.log("error on getNotification")
+        return 0
+    }
+}
+//***************************************************************** */
+//***************************************************************** */
+
+
+
+// REMOVE THIS FUNCTION AFTER UPDATE PREVIOUS APP DATA UPGRADED WITH NOTIFICATION
+// gecici kelimelere notify key/value ekle !!!
+export async function addKey(){
+    // run 1 time
+    try{
+        var exist = await AsyncStorage.getItem('onn');
+        if(exist == null){
+            obj = await get()
+            var listLength = obj.list.length;
+            for(j=0;j<listLength;j++){
+                var kelimeLength = obj.list[j].liste.length;
+                for(i=0;i<kelimeLength;i++){
+                    obj.list[j].liste[i].notify = 0;
+                }
+            }
+            await AsyncStorage.setItem('lists',JSON.stringify(obj));
+            await AsyncStorage.setItem('onn',"itsNotNullAnymore");
+        }
+        else{
+            console.log("addKey zaten calisti")
+        }
+    }
+    catch{
+        console.log("error on addkey()")
+    }
 }

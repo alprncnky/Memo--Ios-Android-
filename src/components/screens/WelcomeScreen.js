@@ -4,37 +4,21 @@ import {StyleSheet, Text, View, Button, } from 'react-native';
 class WelcomeScreen extends Component {
 
   componentDidMount(){
-    setTimeout(() => {this.props.navigation.navigate('Dashboard')}, 1000);
+    setTimeout(() => {this.props.navigation.navigate('Dashboard')}, 800);
   }
 
     render() {
       return (
-        <View style={{ flex:1, alignItems:'center', justifyContent: 'center' }}>
-          <Text style={{ color:'#262626' ,fontWeight:'bold', fontSize:80 }}>M</Text>
+        <View style={{ flex:1, alignItems:'center', justifyContent: 'center', }}>
+          <View style={{ flex:4, justifyContent:'center' }}>
+            <Text style={{ fontFamily: "ClickerScript-Regular", color:'#262626', fontSize:120 }}>M</Text>
+          </View>
+          <View style={{ flex:1 }}>
+            <Text style={{ fontFamily:'sans-serif-medium', color:'#b3b3b3', fontSize:40, fontWeight:'bold' }}>Trihay</Text>
+          </View>
         </View>
       );
     }
   }
 
   export default WelcomeScreen;
-
-
-
-
-  /*
-  import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, } from 'react-native';
-
-class WelcomeScreen extends Component {
-    render() {
-      return (
-        <View style={{ flex:1, alignItems:'center', justifyContent: 'center' }}>
-          <Button title='login' onPress={ ()=> this.props.navigation.navigate('Dashboard') } 
-          />
-        </View>
-      );
-    }
-  }
-
-  export default WelcomeScreen;
-  */

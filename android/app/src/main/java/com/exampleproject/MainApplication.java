@@ -4,6 +4,12 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.pilloxa.backgroundjob.BackgroundJobPackage;
+import com.pilloxa.backgroundjob.BackgroundJobPackage;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -26,7 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new RNGestureHandlerPackage()
+            new ReactNativePushNotificationPackage(),
+            new RNGestureHandlerPackage(),
+            new BackgroundJobPackage()
       );
     }
 

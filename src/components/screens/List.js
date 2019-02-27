@@ -98,7 +98,6 @@ class List extends Component {
   // color of Textview background in Flatlist
   getColor(number){
     var color = ""
-    console.log("number:"+number)
       if( number < -2 )
         color="#E53935"
       else if( number < 0 )
@@ -109,7 +108,6 @@ class List extends Component {
         color="#0097A7"
       else if( number > 2 )
         color="#1DE9B6"
-    console.log("color:"+color)
     return color
   }
 

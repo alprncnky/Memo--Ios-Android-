@@ -8,7 +8,6 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
 } from 'react-navigation';
-import { ScrollView } from 'react-native-gesture-handler';
 import CustomDrawerContent from './src/components/CustomDrawer';
 import WelcomeScreen from './src/components/screens/WelcomeScreen';
 import Feed from './src/components/screens/Feed';
@@ -16,9 +15,17 @@ import Question from './src/components/screens/Question';
 import Settings from './src/components/screens/Settings';
 import List from './src/components/screens/List';
 import Test from './src/components/screens/Test';
+import { HandleNotification } from './src/components/PushController';
+import { addKey } from './src/components/Data';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    addKey()
+    HandleNotification()
+  }
+
   render() {
     return (
       <AppContainer/>
