@@ -1,2 +1,5 @@
 modalin icine status bar koydum cunku modal acildiginda status bar beyaz oluyordu.
 Take Note
+
++en çok kullanilan 100 kelimeye göre google translateden cümle çek veri tabani olustur
+uygulamada cümleler sayfasi ekle

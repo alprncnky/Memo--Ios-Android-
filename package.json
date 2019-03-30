@@ -32,7 +32,7 @@
   },
   "rnpm": {
     "assets": [
-	  "./src/components/fonts/"
+      "./src/components/fonts/"
     ]
   }
 }
