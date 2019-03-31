@@ -6,8 +6,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const CustomDrawerContent = (props) => (
     <SafeAreaView style={{ flex:1 }}>
-      <View style={{ height: 150, backgroundColor:'#cccccc' }} >
-  
+      <View style={{ height: 150, backgroundColor:'white', alignItems:'center',justifyContent: 'center' }} >
+          <Text style={{ fontFamily: "ClickerScript-Regular", color:'#262626', fontSize:70 }}>M</Text>
       </View>
       <ScrollView>
         <DrawerItems {...props} />

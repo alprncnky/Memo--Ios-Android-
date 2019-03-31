@@ -13,11 +13,12 @@ import WelcomeScreen from './src/components/screens/WelcomeScreen';
 import Feed from './src/components/screens/Feed';
 import Question from './src/components/screens/Question';
 import Settings from './src/components/screens/Settings';
+import Quotes from './src/components/screens/Quotes';
+import Sentences from './src/components/screens/Sentences';
 import List from './src/components/screens/List';
 import Test from './src/components/screens/Test';
 import { HandleNotification } from './src/components/PushController';
 import { addKey } from './src/components/Data';
-
 
 class App extends Component {
 
@@ -58,6 +59,46 @@ const SettingsStack = createStackNavigator({
       }
    }
 })
+
+
+const QuotesStack = createStackNavigator({
+  Quotes: { screen: Quotes,
+      navigationOptions:  ({navigation}) => {
+        return {
+          headerTitle: 'Memo',
+          headerLeft: <Icon color='#858585' style={{paddingLeft: 18}} name='md-menu' size={30} onPress={ ()=> navigation.openDrawer() } /> ,
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: "center",
+            justifyContent: 'center',
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlignVertical: 'center'
+        },
+        headerRight: <Text></Text>
+        }
+      }
+   },
+   Sentences: { screen: Sentences,
+    navigationOptions:  ({navigation}) => {
+      return {
+        headerTitle: 'Memo',
+        headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: "center",
+            justifyContent: 'center',
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlignVertical: 'center'
+        },
+        headerRight: <Text></Text>
+      }
+    }
+   }
+})
+
 
 const TestStack = createStackNavigator({
   Test: { screen: Test,
@@ -149,6 +190,13 @@ const DashboardTabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Test',
       tabBarIcon: ({tintColor}) => (<Icon name='md-create' size={tintColor == '#33bbff'? 35 : 30} color={tintColor} />)
+    }
+  },
+  QuotesStack: {
+    screen: QuotesStack,
+    navigationOptions: {
+      tabBarLabel: 'Quotes',
+      tabBarIcon: ({tintColor}) => (<Icon name='md-quote' size={tintColor == '#33bbff'? 35 : 30} color={tintColor} />)
     }
   },
   SettingsStack: {
