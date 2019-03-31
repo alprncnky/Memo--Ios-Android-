@@ -14,8 +14,8 @@ class Quotes extends Component {
   }
 
   // Go Sentences screen
-   goSentenceScreen(){
-    this.props.navigation.navigate('Sentences');
+   goSentenceScreen(lan){
+    this.props.navigation.navigate('Sentences',{data: lan});
   }
 
   render() {
@@ -29,7 +29,7 @@ class Quotes extends Component {
           </View>
           <View style={{flex:2, flexDirection:'row'}}>
               <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("en")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/en512.png')}
                       />
@@ -37,7 +37,7 @@ class Quotes extends Component {
                   <Text>English</Text>
               </View>
               <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("fr")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/fr512.png')}
                       />
@@ -47,7 +47,7 @@ class Quotes extends Component {
           </View>
           <View style={{flex:2, flexDirection:'row', justifyContent:'center'}}>
           <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("tr")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/tr512.png')}
                       />
@@ -55,7 +55,7 @@ class Quotes extends Component {
                   <Text>Turkish</Text>
               </View>
               <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("es")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/es512.png')}
                       />
@@ -65,7 +65,7 @@ class Quotes extends Component {
           </View>
           <View style={{flex:2, flexDirection:'row'}}>
           <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("pr")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/pr512.png')}
                       />
@@ -73,7 +73,7 @@ class Quotes extends Component {
                   <Text>Portuguese</Text>
               </View>
               <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => this.goSentenceScreen()} style={styles.rounded}>
+                  <TouchableOpacity onPress={() => this.goSentenceScreen("it")} style={styles.rounded}>
                       <Image style={{flex:1 ,resizeMode: 'contain' }}
                         source={require('../../../images/it512.png')}
                       />
