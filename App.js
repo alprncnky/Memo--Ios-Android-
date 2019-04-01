@@ -17,6 +17,7 @@ import Quotes from './src/components/screens/Quotes';
 import Sentences from './src/components/screens/Sentences';
 import List from './src/components/screens/List';
 import Test from './src/components/screens/Test';
+import Statistics from './src/components/screens/Statistics';
 import { HandleNotification } from './src/components/PushController';
 import { addKey } from './src/components/Data';
 
@@ -41,6 +42,28 @@ export default App;
 
 const SettingsStack = createStackNavigator({
   Settings: { screen: Settings,
+      navigationOptions:  ({navigation}) => {
+        return {
+          headerTitle: 'Memo',
+          headerLeft: <Icon color='#858585' style={{paddingLeft: 18}} name='md-menu' size={30} onPress={ ()=> navigation.openDrawer() } /> ,
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: "center",
+            justifyContent: 'center',
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlignVertical: 'center'
+        },
+        headerRight: <Text></Text>
+        }
+      }
+   }
+})
+
+
+const StatisticsStack = createStackNavigator({
+  Statistics: { screen: Statistics,
       navigationOptions:  ({navigation}) => {
         return {
           headerTitle: 'Memo',
@@ -229,7 +252,8 @@ const DashboardStackNavigator = createStackNavigator({
 })
 
 const AppDrawerNavigator = createDrawerNavigator({
-  Dashboard: { screen: DashboardStackNavigator }    // 2)  DashboardScreen => DashboardTabNavigator      3)  => DashboardStackNavigator
+  Dashboard: { screen: DashboardStackNavigator },    // 2)  DashboardScreen => DashboardTabNavigator      3)  => DashboardStackNavigator
+  Statistics: { screen: StatisticsStack }
 },{
   contentComponent: CustomDrawerContent
 })

@@ -32,14 +32,14 @@ export async function getList(index){
 export async function addList(listname){
     obj = await get()
     if(obj != null){
-        obj.list.push({ name: listname, liste: [] })
+        obj.list.push({ name: listname, liste: [], correct: 0, notification: 0 })
         await AsyncStorage.setItem('lists',JSON.stringify(obj));
         console.log("DATA-CLASS-ADDLİST-DONE")
     }else {
         obj = {
             list: []
         }
-        obj.list.push({ name: listname, liste: [] })
+        obj.list.push({ name: listname, liste: [], correct: 0, notification: 0 })
         await AsyncStorage.setItem('lists',JSON.stringify(obj));
     }
 }
@@ -89,6 +89,7 @@ export async function updateScore(listNo,kelimeNo,answer,pass){
         else{
             obj.list[listNo].liste[kelimeNo].count = count + 1
         }
+        obj.list[listNo].correct = obj.list[listNo].correct + 1
     }
     else{   // wrong answer
         if(count <= -3){
@@ -106,6 +107,7 @@ export async function updateScore(listNo,kelimeNo,answer,pass){
 export async function updateNotify(data,listNo, kelimeNo){
     console.log("updateNotfiy()")
     obj = data
+    obj.list[listNo].notification = obj.list[listNo].notification + 1
     obj.list[listNo].liste[kelimeNo].notify = obj.list[listNo].liste[kelimeNo].notify + 1
     await AsyncStorage.setItem('lists',JSON.stringify(obj));
 }

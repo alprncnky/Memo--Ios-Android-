@@ -13,6 +13,8 @@
     "react-native-elements": "^1.0.0",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-modal": "^7.0.2",
+    "react-native-pie-chart": "^1.0.13",
+    "react-native-pure-chart": "0.0.24",
     "react-native-push-notification": "^3.1.2",
     "react-native-swipeout": "^2.3.6",
     "react-native-switch-pro": "^1.0.2-beta",
