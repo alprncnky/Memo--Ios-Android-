@@ -15,6 +15,8 @@ import Question from './src/components/screens/Question';
 import Settings from './src/components/screens/Settings';
 import Quotes from './src/components/screens/Quotes';
 import Sentences from './src/components/screens/Sentences';
+import TopWords from './src/components/screens/TopWords';
+import WordList from './src/components/screens/WordList';
 import List from './src/components/screens/List';
 import Test from './src/components/screens/Test';
 import Statistics from './src/components/screens/Statistics';
@@ -80,6 +82,44 @@ const StatisticsStack = createStackNavigator({
         headerRight: <Text></Text>
         }
       }
+   }
+})
+
+const TopWordsStack = createStackNavigator({
+  TopWords: { screen: TopWords,
+      navigationOptions:  ({navigation}) => {
+        return {
+          headerTitle: 'Memo',
+          headerLeft: <Icon color='#858585' style={{paddingLeft: 18}} name='md-menu' size={30} onPress={ ()=> navigation.openDrawer() } /> ,
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: "center",
+            justifyContent: 'center',
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlignVertical: 'center'
+        },
+        headerRight: <Text></Text>
+        }
+      }
+   },
+   WordList: { screen: WordList,
+    navigationOptions:  ({navigation}) => {
+      return {
+        headerTitle: 'Memo',
+        headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: "center",
+            justifyContent: 'center',
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlignVertical: 'center'
+        },
+        headerRight: <Text></Text>
+      }
+    }
    }
 })
 
@@ -253,7 +293,11 @@ const DashboardStackNavigator = createStackNavigator({
 
 const AppDrawerNavigator = createDrawerNavigator({
   Dashboard: { screen: DashboardStackNavigator },    // 2)  DashboardScreen => DashboardTabNavigator      3)  => DashboardStackNavigator
-  Statistics: { screen: StatisticsStack }
+  Statistics: { screen: StatisticsStack },
+  TopWords: { screen: TopWordsStack,navigationOptions: () => 
+    ({
+        title: 'Top 1000 Words'
+    })  }
 },{
   contentComponent: CustomDrawerContent
 })
