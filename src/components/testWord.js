@@ -51,6 +51,7 @@ export function getShowed(data,no){
 
 export function leastNotifyNumber(data,no){
     console.log("leastNotifyNumber()")
+    i=0
     try{
         liste = data.list[no].liste
         if(liste.length > 0){

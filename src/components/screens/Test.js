@@ -69,9 +69,9 @@ class Test extends Component {
             </View>
             <View style={{ flex:6 }}>
                 <View style={{ flex:1 }}>
-                    <TouchableOpacity style={styles.mixBtn}>
-                        <Text style={{ fontSize:25 ,color:'#fff' }}>
-                            Mix Start
+                    <TouchableOpacity activeOpacity={1} style={styles.mixBtn}>
+                        <Text style={{ fontSize:23 ,color:'#fff' }}>
+                            Choose your list
                         </Text>
                     </TouchableOpacity>
                 </View>
