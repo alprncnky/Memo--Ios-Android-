@@ -8,7 +8,7 @@ class TopWords extends Component {
     super(props);
     this.state = {
     };
-    //console.disableYellowBox = true;
+    console.disableYellowBox = true;
   }
 
   goWordList(Id){

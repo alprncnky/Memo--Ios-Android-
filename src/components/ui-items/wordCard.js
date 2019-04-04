@@ -5,8 +5,8 @@ const width_ = Math.round(Dimensions.get('window').width)
 const cardHeight = Math.round(width_/6)
 const cardWidth = cardHeight*4.5
 
-const name = ["English","Spanish","Turkish","Arabic","Portuguese","French","German","Italian","Russian","Indonesian","Hindi"]
-const imagePath = [require('../../../images/en512.png'), require('../../../images/es512.png'), require('../../../images/tr512.png'), require('../../../images/ar512.png'), require('../../../images/pr512.png'), require('../../../images/fr512.png'), require('../../../images/gr512.png'), require('../../../images/it512.png'), require('../../../images/rs512.png'), require('../../../images/id512.png'), require('../../../images/in512.png')]
+const name = ["English","Spanish","Arabic","French","German","Indonesian","Hindi","Italian","Portuguese","Russian","Turkish"]
+const imagePath = [require('../../../images/en512.png'), require('../../../images/es512.png'), require('../../../images/ar512.png'), require('../../../images/fr512.png'), require('../../../images/gr512.png'), require('../../../images/id512.png'), require('../../../images/in512.png'), require('../../../images/it512.png'), require('../../../images/pr512.png'), require('../../../images/rs512.png'), require('../../../images/tr512.png')]
 
 class WordCard extends React.PureComponent {
 

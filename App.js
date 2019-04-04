@@ -22,6 +22,7 @@ import Test from './src/components/screens/Test';
 import Statistics from './src/components/screens/Statistics';
 import { HandleNotification } from './src/components/PushController';
 import { addKey } from './src/components/Data';
+import { Root } from "native-base";
 
 class App extends Component {
 
@@ -32,7 +33,9 @@ class App extends Component {
 
   render() {
     return (
-      <AppContainer/>
+      <Root>
+        <AppContainer/>
+      </Root>
     );
   }
 }
