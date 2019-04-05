@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import { Text } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import {
   createSwitchNavigator,
@@ -22,7 +22,6 @@ import Test from './src/components/screens/Test';
 import Statistics from './src/components/screens/Statistics';
 import { HandleNotification } from './src/components/PushController';
 import { addKey } from './src/components/Data';
-import { Root } from "native-base";
 
 class App extends Component {
 
@@ -33,9 +32,7 @@ class App extends Component {
 
   render() {
     return (
-      <Root>
         <AppContainer/>
-      </Root>
     );
   }
 }
@@ -295,12 +292,19 @@ const DashboardStackNavigator = createStackNavigator({
 })
 
 const AppDrawerNavigator = createDrawerNavigator({
-  Dashboard: { screen: DashboardStackNavigator },    // 2)  DashboardScreen => DashboardTabNavigator      3)  => DashboardStackNavigator
-  Statistics: { screen: StatisticsStack },
+  Dashboard: { screen: DashboardStackNavigator, 
+  navigationOptions: {
+    drawerIcon: <Icon name='ios-home' size={24} color={'black'} /> 
+  } },    // 2)  DashboardScreen => DashboardTabNavigator      3)  => DashboardStackNavigator
+  Statistics: { screen: StatisticsStack, 
+  navigationOptions: {
+    drawerIcon: <Icon name='md-stats' size={24} color={'black'}  /> 
+  } },
   TopWords: { screen: TopWordsStack,navigationOptions: () => 
     ({
-        title: 'Top 1000 Words'
-    })  }
+        title: 'Top 1000 Words',
+        drawerIcon: <Icon name='ios-list' size={35} color={'black'}  /> 
+    })}
 },{
   contentComponent: CustomDrawerContent
 })

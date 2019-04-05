@@ -3,7 +3,6 @@ import {StyleSheet, Text, View, TouchableOpacity, StatusBar} from 'react-native'
 import Modal from "react-native-modal";
 import Icon from '../icons';
 import { Input } from 'react-native-elements';
-import { deleteList } from '../Data';
 
 export default class DisplayModal extends Component {
 

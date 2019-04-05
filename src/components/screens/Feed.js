@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity, StatusBar, FlatList} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, StatusBar, FlatList} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Card from '../ui-items/card';
 import { ScrollView } from 'react-native-gesture-handler';
 import DisplayModal from '../ui-items/DisplayModal';
-import { get, addList, addWord, deleteWord, deleteList } from '../Data';
+import { get, addList, deleteList } from '../Data';
 
 class Feed extends Component {
 
