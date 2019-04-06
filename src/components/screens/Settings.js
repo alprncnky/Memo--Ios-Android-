@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, StatusBar, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, View, Button, StatusBar, TouchableHighlight, Linking} from 'react-native';
 import { setNotificationData, getNotificationData } from '../Data';
 import { HandleNotification } from '../PushController';
 import { Slider } from 'react-native-elements';
@@ -97,6 +97,28 @@ class Settings extends Component {
             </View>
 
             <Divider style={{ height: 1 ,backgroundColor: '#cccccc', marginHorizontal:10 }} />
+
+            <View style={{ margin:20 }}>
+              <View style={{ flexDirection:'row' }}>
+                <View style={{ flex:6 }}>
+                  <Text style={{ fontSize: 26, fontWeight:'bold' }}>FeedBack</Text>
+                </View>
+                <View style={{ flex: 2, justifyContent:'center', alignItems:'center' }}>
+                </View>
+              </View>
+
+              <Divider style={{ height: 1 ,backgroundColor: '#cccccc', marginRight:10 }} />
+
+              <View style={{ marginTop:10 }}>
+                <Text style={{ fontSize: 16, fontWeight:'bold' }}>Please let us know if you have an issue or cool idea about Memo app.</Text>
+              </View>
+
+              <View style={{ flexDirection:'row' }}>
+                <Text style={{ fontSize:17, fontWeight:'bold', alignSelf:'center'}}>Email: </Text>
+                <Text onPress={() => Linking.openURL('mailto:trihay@outlook.com.tr')} style={{ fontSize:16, color: 'blue'}}> trihay@outlook.com.tr</Text>
+              </View>
+              
+            </View>
           
 
         </View>

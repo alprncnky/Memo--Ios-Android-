@@ -106,14 +106,19 @@ class Question extends Component {
 
   // check anwser with Lowercase sensitive
   isEquals(){
-    if(this.state.word2 == this.state.answer){
-      return true
-    }
-    else if(this.state.word2.toLowerCase() === this.state.answer.toLowerCase()){
-      return true
-    }
-    else{
-      return false  // WRONG ANWSER
+    try{
+      if(this.state.word2 == this.state.answer){
+        return true
+      }
+      else if(this.state.word2.toLowerCase() === this.state.answer.toLowerCase()){
+        return true
+      }
+      else{
+        return false  // WRONG ANWSER
+      }
+    }catch{
+      // null error this.state.word2.LowerCase()...
+      return false
     }
   }
 

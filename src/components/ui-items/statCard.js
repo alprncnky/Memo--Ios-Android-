@@ -19,7 +19,7 @@ class StatCard extends React.PureComponent {
             <View style={{ flex: 28 }}>
                 <Text style={styles.text}>{this.props.listName}</Text>
             </View>
-            <View style={{ flex:17, justifyContent:'center', flexDirection:'row'}}>
+            <View style={{ flex:20, justifyContent:'center', flexDirection:'row'}}>
                 <View style={{ padding:3, marginRight:10 }}>
                     <View style={{justifyContent:'center', alignItems:'center'}}>
                         <Icon.Ionicons name='md-eye' color='#000' size={20} />
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     text: {
         marginLeft:8,
-        fontSize: 22,
+        fontSize: 20,
         color: '#000',
         fontWeight: 'bold',
     }

@@ -149,11 +149,15 @@ export async function addKey(){
     try{
         var exist = await AsyncStorage.getItem('add');
         if(exist == null){
+            console.log("exist==null ifte")
             obj = await get()
-            // Create Object Structure
-            obj = {
-                list: []
-            }
+            if(obj == null){
+                console.log("obj NULL on addKey()")
+                // Create Object Structure
+                obj = {
+                    list: []
+                }
+            }           
             // add SampleList List and add 4 words in it.
             obj.list.push({ name: "SampleList", liste: [], correct: 0, notification: 0 })
             obj.list[0].liste.push({kelime1: "my", kelime2: "mi", showed: 0, count: 0, notify: 0});

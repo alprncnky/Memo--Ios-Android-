@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, StatusBar, FlatList} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, StatusBar, FlatList, AsyncStorage} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Card from '../ui-items/card';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -16,7 +16,8 @@ class Feed extends Component {
       visibleModal: null,
       modalName: null,
       index: null,
-      listName: null
+      listName: null,
+      showOnceText: null
     }
   }
 
@@ -48,9 +49,11 @@ class Feed extends Component {
    }
 
    getInput = async (txt) => {
-    this.modalTrigger()
-    await addList(txt)
-    this.loadData()
+    if(txt.length<19 && txt.length > 0){
+      this.modalTrigger()
+      await addList(txt)
+      this.loadData()
+    }
   }
 
   modalTrigger = () => {
@@ -63,9 +66,23 @@ class Feed extends Component {
     return colors[number];
   }
 
+  // showOnceText
+  async showOnce(){
+    var exist = await AsyncStorage.getItem('show');
+    if(exist == null){
+      console.log("showOnce():run*")
+      this.setState({
+        showOnceText: <View><Text style={{ margin:20, fontSize:30, alignSelf:'center' }}>Welcome!</Text><Text style={{ margin:10, fontSize:20, alignSelf:'center' }}>The above list is just a sample list. You can add more lists or delete(Long Press On List) lists. The Test screen is going to show your words from these lists.</Text></View>
+      })
+      await AsyncStorage.setItem('show',"itsNotNullAnymore");
+    }
+  }
+
+
   // when page load
   componentWillMount() {
     this.loadData();
+    this.showOnce();
   }
 
   // refresh Flatlist  ( get data from local saved )
@@ -131,6 +148,7 @@ class Feed extends Component {
                 </View>      
 
                 { this._renderCards() }
+                { this.state.showOnceText }
 
             </ScrollView>
 
