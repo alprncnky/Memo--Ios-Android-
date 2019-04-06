@@ -20,7 +20,7 @@ class Quotes extends Component {
 
   render() {
     return (
-      <View style={styles.    container}>
+      <View style={styles.container}>
           <View style={{flex:2, flexDirection:'row'}}>
               <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                   <Text style={{ color:'#1a1a1a', fontSize: 65, fontWeight:'bold' }}>Quotes</Text>

@@ -18,7 +18,7 @@ async function sendNotification(){
       console.log("NOTİFICATION SHOWED")
       text = data.kelime1 +" - "+ data.kelime2
       PushNotification.localNotification({
-        title: "Ezberleme Zamanı!", // (optional)
+        title: "Memorizing Time!", // (optional)
         message: text,
       })
     }

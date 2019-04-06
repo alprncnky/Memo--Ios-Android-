@@ -22,7 +22,7 @@ class WordList extends Component {
       translateNo: this.props.navigation.state.params.id,
       visibleModal: false
     };
-    //console.disableYellowBox = true;
+    console.disableYellowBox = true;
   }
 
   openModal() {

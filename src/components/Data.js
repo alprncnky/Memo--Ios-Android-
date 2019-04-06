@@ -143,23 +143,25 @@ export async function getNotificationData(){
 
 
 
-// REMOVE THIS FUNCTION AFTER UPDATE PREVIOUS APP DATA UPGRADED WITH NOTIFICATION
-// gecici kelimelere notify key/value ekle !!!
+// THIS FUNCTION RUN ONE TIME. 
 export async function addKey(){
     // run 1 time
     try{
-        var exist = await AsyncStorage.getItem('onn');
+        var exist = await AsyncStorage.getItem('add');
         if(exist == null){
             obj = await get()
-            var listLength = obj.list.length;
-            for(j=0;j<listLength;j++){
-                var kelimeLength = obj.list[j].liste.length;
-                for(i=0;i<kelimeLength;i++){
-                    obj.list[j].liste[i].notify = 0;
-                }
+            // Create Object Structure
+            obj = {
+                list: []
             }
+            // add SampleList List and add 4 words in it.
+            obj.list.push({ name: "SampleList", liste: [], correct: 0, notification: 0 })
+            obj.list[0].liste.push({kelime1: "my", kelime2: "mi", showed: 0, count: 0, notify: 0});
+            obj.list[0].liste.push({kelime1: "name", kelime2: "nombre", showed: 0, count: 0, notify: 0});
+            obj.list[0].liste.push({kelime1: "is", kelime2: "es", showed: 0, count: 0, notify: 0});
+            obj.list[0].liste.push({kelime1: "memo", kelime2: "memo", showed: 0, count: 0, notify: 0});
             await AsyncStorage.setItem('lists',JSON.stringify(obj));
-            await AsyncStorage.setItem('onn',"itsNotNullAnymore");
+            await AsyncStorage.setItem('add',"itsNotNullAnymore");
         }
         else{
             console.log("addKey zaten calisti")

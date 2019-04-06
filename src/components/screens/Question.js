@@ -90,7 +90,7 @@ class Question extends Component {
 
   //check answer when press button
   checkAnswer(){
-    if(this.state.word2 == this.state.answer){
+    if(this.isEquals()){
       // correct answer
       console.log("checkAnswer():"+this.props.navigation.state.params.no+"-"+this.state.wordsNo[this.state.order-1])
       this.setState({ cardColor: "#81c784" })
@@ -101,6 +101,19 @@ class Question extends Component {
       // wrong answer
       this.setState({ cardColor: "#f44336" })
       updateScore(this.props.navigation.state.params.no,this.state.wordsNo[this.state.order-1],false)
+    }
+  }
+
+  // check anwser with Lowercase sensitive
+  isEquals(){
+    if(this.state.word2 == this.state.answer){
+      return true
+    }
+    else if(this.state.word2.toLowerCase() === this.state.answer.toLowerCase()){
+      return true
+    }
+    else{
+      return false  // WRONG ANWSER
     }
   }
 

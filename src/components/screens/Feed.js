@@ -79,7 +79,7 @@ class Feed extends Component {
   _renderCards(){
     listExist = false
     try{
-      if(this.state.parsed.list != null){
+      if(this.state.parsed.list.length > 0){
         listExist = true
       }
     }catch{

@@ -61,17 +61,21 @@ class List extends Component {
 
    // after pressing add button on modal ( add word )
    getInput = async (txt1, txt2) => {
-     console.log("getInput:modalNo"+this.state.modalNo)
-    this.modalTrigger()
-    if(this.state.modalNo == 1){
-      console.log("if else-1:")
-      await addWord(this.props.navigation.state.params.index,txt1,txt2)
+     console.log("getInput:modalNo"+this.state.modalNo+"txt1:"+txt1)
+    if(txt1.length+txt2.length < 38){
+      if(txt1.length > 0 && txt2.length > 0){
+          this.modalTrigger()
+          if(this.state.modalNo == 1){
+            console.log("if else-1:")
+            await addWord(this.props.navigation.state.params.index,txt1,txt2)
+          }
+          else if(this.state.modalNo == 3){
+            console.log("if else-3:")
+            await updateWords(this.props.navigation.state.params.index,this.state.rowIndex,txt1,txt2)
+          }
+          this.loadData()
+      }
     }
-    else if(this.state.modalNo == 3){
-      console.log("if else-3:")
-      await updateWords(this.props.navigation.state.params.index,this.state.rowIndex,txt1,txt2)
-    }
-    this.loadData()
   }
 
    // close modal
@@ -171,7 +175,7 @@ class List extends Component {
                       </View>
                   </Swipeout>
                   }
-                  keyExtractor={item => item.kelime1+item.kelime2}
+                  keyExtractor={(item, index) => item.kelime1+item.kelime2+index}
                 />
               </View>              
             </View>
