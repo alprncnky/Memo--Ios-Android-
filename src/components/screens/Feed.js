@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, StatusBar, FlatList, AsyncStorage} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, StatusBar, FlatList, AsyncStorage, Dimensions} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Card from '../ui-items/card';
 import { ScrollView } from 'react-native-gesture-handler';
 import DisplayModal from '../ui-items/DisplayModal';
 import { get, addList, deleteList } from '../Data';
 
-class Feed extends Component {
+const width_ = Math.round(Dimensions.get('window').width)
+const listTextSize = Math.round(width_/11.7)
 
+class Feed extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -19,6 +21,7 @@ class Feed extends Component {
       listName: null,
       showOnceText: null
     }
+    console.log("WIDTH:"+width_)
   }
 
   // Go List screen
@@ -192,7 +195,7 @@ const styles = StyleSheet.create({
 
   listText: {
     color: '#000',
-    fontSize: 35,
+    fontSize: listTextSize,
     fontWeight: 'bold',
   },
 
@@ -211,7 +214,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 25
   }
-
 })
 
 

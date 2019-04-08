@@ -94,18 +94,26 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+    signingConfigs {
+        tony {
+            keyAlias 'tony'
+            keyPassword 'stark.321'
+            storeFile file('C:/Users/Alperen/Documents/React/tutorial/exampleProject/android/anah/yekk.jks')
+            storePassword 'stark.321'
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
     defaultConfig {
         applicationId "com.exampleproject"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.1"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        signingConfig signingConfigs.tony
     }
     splits {
         abi {
@@ -119,6 +127,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.tony
         }
     }
     // applicationVariants are e.g. debug, release
@@ -126,13 +135,15 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
         }
+    }
+    productFlavors {
     }
 }
 
@@ -149,9 +160,10 @@ dependencies {
     implementation project(':react-native-push-notification')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'com.facebook.react:react-native:+'
+    // From node_modules
 }
 
 // Run this once to be able to run the application with BUCK

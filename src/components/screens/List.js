@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions} from 'react-native';
 import Icon from '../icons';
 import Swipeout from 'react-native-swipeout';
 import ListModal from '../ui-items/ListModal';
-import { getList, addList, addWord, deleteWord, deleteList, updateWords } from '../Data';
+import { getList, addList, addWord, deleteWord, updateWords } from '../Data';
 import { NavigationEvents } from "react-navigation";
 
+const width_ = Math.round(Dimensions.get('window').width)
+const listTextSize = Math.round(width_/11.7)
 
 // TODO: en son delete modal ına kelime ismini yolladım. 
 //rowIndex le acik olan swipebuttonundan hangi satır oldugunu aldım ordan listedeki o satırın kelimesini delete moduluna yolladım.
@@ -251,7 +253,7 @@ const styles = StyleSheet.create({
 
   listText: {
     color: '#000',
-    fontSize: 35,
+    fontSize: listTextSize,
     fontWeight: 'bold',
   },
   addContainer: {

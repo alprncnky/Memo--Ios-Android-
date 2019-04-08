@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+
+const width_ = Math.round(Dimensions.get('window').width)
+const listTextSize = Math.round(width_/13.7)
 
 class Card extends React.PureComponent {
 
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
         },
     },
     text: {
-        fontSize: 30,
+        fontSize: listTextSize,
         color: '#fff',
         fontWeight: 'bold',
     }

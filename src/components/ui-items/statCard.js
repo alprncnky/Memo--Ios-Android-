@@ -4,6 +4,8 @@ import Icon from '../icons';
 
 const width_ = Math.round(Dimensions.get('window').width)
 const cardHeight = Math.round(width_/7)
+const cardItemSize = Math.round(width_/21)
+const cardItemTextSize = Math.round(width_/23)
 
 class StatCard extends React.PureComponent {
 
@@ -22,26 +24,26 @@ class StatCard extends React.PureComponent {
             <View style={{ flex:20, justifyContent:'center', flexDirection:'row'}}>
                 <View style={{ padding:3, marginRight:10 }}>
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <Icon.Ionicons name='md-eye' color='#000' size={20} />
+                        <Icon.Ionicons name='md-eye' color='#000' size={cardItemSize} />
                     </View>
                     <View style={{alignItems:'center'}}>
-                        <Text>{this.props.text1}</Text>
+                        <Text style={styles.iconText}>{this.props.text1}</Text>
                     </View>
                 </View>
                 <View style={{ padding:3, marginRight:10, alignItems:'center'}}>
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <Icon.MaterialCommunityIcons name="pencil" color='#000' size={20} />
+                        <Icon.MaterialCommunityIcons name="pencil" color='#000' size={cardItemSize} />
                     </View>
                     <View style={{alignItems:'center'}}>
-                        <Text>{this.props.text2}</Text>
+                        <Text style={styles.iconText}>{this.props.text2}</Text>
                     </View>
                 </View>
                 <View style={{ padding:3, alignItems:'center'}}>
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <Icon.Foundation name="list-number" color='#000' size={20} />
+                        <Icon.Foundation name="list-number" color='#000' size={cardItemSize} />
                     </View>
                     <View style={{alignItems:'center'}}>
-                        <Text>{this.props.sayi}</Text>
+                        <Text style={styles.iconText}>{this.props.sayi}</Text>
                     </View>
                 </View>
             </View>
@@ -66,9 +68,12 @@ const styles = StyleSheet.create({
     },
     text: {
         marginLeft:8,
-        fontSize: 20,
+        fontSize: cardItemSize,
         color: '#000',
         fontWeight: 'bold',
+    },
+    iconText: {
+        fontSize: cardItemTextSize
     }
 })
 
